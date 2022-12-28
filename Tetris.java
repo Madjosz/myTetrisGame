@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public class Tetris extends JFrame{
 	private static final long serialVersionUID = 1L;
 	int spacing = 1;
+    Board board;
 	Tetris() {
 		setUndecorated(true);
 		JFrame frame = new JFrame();
@@ -23,7 +24,7 @@ public class Tetris extends JFrame{
 	    this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		
-	    Board board = new Board();
+	    board = new Board();
 	    this.setContentPane(board);
 	    this.setVisible(true); 
 	}
@@ -32,7 +33,6 @@ public class Tetris extends JFrame{
 		private static final long serialVersionUID = 1L;
 		
 		Pieces tetrisPObj = new Pieces(Color.red, new int[][] {{0,1},{0,1},{1,1}}, 0,0);
-		Pieces pieces = new Pieces();
 		
 		int tetros [][] = tetrisPObj.getShape();
 		Color color = tetrisPObj.getColor();	
@@ -61,10 +61,9 @@ public class Tetris extends JFrame{
 			}
 		}
 		
-		
 		// let's create movingBlock
 		public void moveBlockDown() {
-			pieces.moveDown();
+			tetrisPObj.moveDown();
 			repaint();
 		}
 	}
